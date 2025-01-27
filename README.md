@@ -30,3 +30,6 @@ Authentication ensures only the right pepole can access certain feautures. For E
 
 #### Milestone 3:
 Set up dedicated folders for organizing backend code efficiently. Initialized and configured a Node.js server to handle API request. Connected the application to MongoDB to store and manage the data.
+
+## Milestone 4:
+  Created a User Model to define how user data is structured in the database also developed a user interactions, like adding or retrieving data. Additionally, configured Multer to handle file uploads, allowing users to store files such as images.Adding
