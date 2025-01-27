@@ -27,3 +27,6 @@ Authentication ensures only the right pepole can access certain feautures. For E
 #### SECTION 2:
 > Milestone 2:
 - In this i create a react app and design the login page and style it Tailwindcss. It gives a wonderful Experience and i get some knowledge that how to work on a professional project.
+
+#### Milestone 3:
+Set up dedicated folders for organizing backend code efficiently. Initialized and configured a Node.js server to handle API request. Connected the application to MongoDB to store and manage the data.
