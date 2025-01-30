@@ -14,7 +14,7 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-12">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-400 to-cyan-500 px-4 py-12">
             <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
                 <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">
                     Login to Your Account
@@ -35,7 +35,7 @@ const Login = () => {
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
                             />
                         </div>
                     </div>
@@ -55,7 +55,7 @@ const Login = () => {
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
                             />
                             {visible ? (
                                 <AiOutlineEye
@@ -79,7 +79,7 @@ const Login = () => {
                                 id="remember-me"
                                 name="remember-me"
                                 type="checkbox"
-                                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                className="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"
                             />
                             <label
                                 htmlFor="remember-me"
@@ -91,7 +91,7 @@ const Login = () => {
                         <div className="text-sm">
                             <a
                                 href="/forgot-password"
-                                className="font-medium text-blue-600 hover:text-blue-500"
+                                className="font-medium text-teal-600 hover:text-teal-500"
                             >
                                 Forgot your password?
                             </a>
@@ -100,7 +100,7 @@ const Login = () => {
 
                     <button
                         type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
                     >
                         Login
                     </button>
@@ -108,7 +108,7 @@ const Login = () => {
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-600">
                             Don’t have an account?{' '}
-                            <Link to="/sign-up" className="font-medium text-blue-600 hover:text-blue-500">
+                            <Link to="/sign-up" className="font-medium text-teal-600 hover:text-teal-500">
                                 Sign up
                             </Link>
                         </p>
