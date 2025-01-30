@@ -37,3 +37,10 @@ Authentication ensures only the right people can access certain features. For ex
 
   ## Milestone 5:
    In this I create a react app and design the signup page and style it Tailwindcss. It gives a wonderful Experience and i get some knowledge that how to work on a professional project. 
+
+## Milestone 6:
+In this milestone, we created a backend endpoint to securely store user data during signup. Key features include:
+
+- Password Encryption: Encrypting passwords before storing them in the database to enhance security.
+- Secure Data Storage: Saving user details while following best security practices.
+- Compliance: Ensuring password protection aligns with security laws like GDPR and PCI-DSS.
