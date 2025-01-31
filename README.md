@@ -43,4 +43,7 @@ In this milestone, we created a backend endpoint to securely store user data dur
 
 - Password Encryption: Encrypting passwords before storing them in the database to enhance security.
 - Secure Data Storage: Saving user details while following best security practices.
-- Compliance: Ensuring password protection aligns with security laws like GDPR and PCI-DSS.
+- Compliance: Ensuring password protection aligns with security laws like  GDPR and PCI-DSS.
+
+## Milestone 7 :
+In this milestone, we implemented user login authentication by validating credentials and comparing encrypted passwords using bcrypt. The process involves retrieving user data, hashing the entered password, and matching it with the stored hash. If authenticated, access is granted; otherwise, an error is returned. This enhances security and protects user data. 🚀
