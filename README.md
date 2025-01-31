@@ -47,3 +47,10 @@ In this milestone, we created a backend endpoint to securely store user data dur
 
 ## Milestone 7 :
 In this milestone, we implemented user login authentication by validating credentials and comparing encrypted passwords using bcrypt. The process involves retrieving user data, hashing the entered password, and matching it with the stored hash. If authenticated, access is granted; otherwise, an error is returned. This enhances security and protects user data. 🚀
+
+## Milestone 8:
+### Learning Goals 🎯  
+- Build a **frontend card component** for products.  
+- Display these **product cards** on the homepage.  
+
+This milestone focuses on designing a reusable product card and integrating it into the homepage to showcase multiple products effectively. 🚀
