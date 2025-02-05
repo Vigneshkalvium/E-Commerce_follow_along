@@ -54,3 +54,27 @@ In this milestone, we implemented user login authentication by validating creden
 - Display these **product cards** on the homepage.  
 
 This milestone focuses on designing a reusable product card and integrating it into the homepage to showcase multiple products effectively. 🚀
+
+# Milestone 9 - Creating a Product Form
+
+## Why Create a Product Form?
+The Product Form is essential for adding new products to the database. It allows users to input product details, which will be stored in MongoDB Atlas and displayed on the Products Home Page.
+
+## Key Features of the Product Form:
+- **Product Details Input:** The form collects essential details like:
+  - Product Name  
+  - Price  
+  - Category  
+  - Description  
+  - Stock Availability  
+- **Data Storage:** The entered data will be saved in MongoDB Atlas.  
+- **Future Enhancements (for experimentation):**  
+  - **Admin Access:** Only admins can upload products.  
+  - **Shop Profiles:** A user with a "Shop Profile" can add and manage products.  
+
+## Steps to Implement:
+1. **Create a Product Form** in **React/HTML** to collect product details.  
+2. **Handle Form Submission** to store the product data in MongoDB.  
+3. **Restrict Access** (Optional Enhancements) based on user roles (Admin/Shop).  
+
+This milestone helps in understanding how to structure and manage product data efficiently.
