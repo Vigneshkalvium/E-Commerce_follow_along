@@ -78,3 +78,17 @@ The Product Form is essential for adding new products to the database. It allows
 3. **Restrict Access** (Optional Enhancements) based on user roles (Admin/Shop).  
 
 This milestone helps in understanding how to structure and manage product data efficiently.
+
+# Milestone 10 Summary
+
+In this milestone, you'll learn how to create a **mongoose schema** for products and build an **endpoint** to store product details in MongoDB. The main steps include:
+
+## 1. Product Schema
+- Define the structure for product data (e.g., name, description, price) with validation for required fields and correct data types.
+
+## 2. Endpoint Creation
+- Build a POST endpoint to receive product data, validate it, and save it to MongoDB.
+
+## 3. Validation
+- Ensure only valid data is saved, which helps maintain data integrity and prevent errors.
+
