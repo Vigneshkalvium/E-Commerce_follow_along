@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, LoginPage,SignupPage, CreateProduct } from './Routes.js';
+import { Home, LoginPage,SignupPage, CreateProduct, MyProducts } from './Routes.js';
 import "./App.css";
 
 const App = () => {
@@ -11,6 +11,7 @@ const App = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/create-product' element={<CreateProduct />} />
+        <Route path='/myproducts' element={<MyProducts/>} />
       </Routes>
     </BrowserRouter>
   );
