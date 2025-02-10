@@ -92,3 +92,6 @@ In this milestone, you'll learn how to create a **mongoose schema** for products
 ## 3. Validation
 - Ensure only valid data is saved, which helps maintain data integrity and prevent errors.
 
+# Milestone 11
+
+In Milestone 11, I focused on implementing functionality to send and receive product data between the backend and frontend of my e-commerce project. On the backend, I created an API endpoint that retrieves all products from MongoDB, sending the data to the frontend in JSON format. On the frontend, I created a function to fetch the product data and display it dynamically using a previously created product card component. This milestone helped me understand how to handle data transfer between the backend and frontend and how to display dynamic content using React components.

@@ -83,5 +83,23 @@ router.get('/get-products', async (req, res) => {
     }
 });
 
+router.get('/my-products', async (req, res) => {
+    const { email } = req.query;
+    try {
+        const products = await Product.findOne({ email });
+        const productsWithFullImageUrl = products.map((product) =>{
+            if(product.images && product.images.length > 0){
+                product.images = product.images.map((imagePath) => {
+                    return imagePath;
+                });
+            }
+            return product;
+        })
+        res.status(200).json({ products: productsWithFullImageUrl });
+    } catch (error) {
+        console.error("Server Error",error);
+        res.status(500).json({ error: 'Server error. Could not fetch products.' });
+    }
+});
 
 module.exports = router;
