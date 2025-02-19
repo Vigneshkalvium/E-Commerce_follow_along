@@ -100,3 +100,16 @@ In Milestone 11, I focused on implementing functionality to send and receive pro
 # Milestone 12
 
 In Milestone 12, I focused on filtering product data based on the user’s email and displaying it dynamically on the frontend. On the backend, I created an API endpoint that retrieves products from MongoDB based on a specific user email. On the frontend, I developed a function to fetch the filtered data and displayed it using the previously created product card component. This milestone helped me understand how to filter data with specific constraints and pass it to the client for dynamic rendering, improving how user-specific product information is handled and shown.
+
+# Milestone 13
+
+Updating Existing Data in MongoDB
+- Create a PUT or PATCH API endpoint using Express.js.
+- Use Mongoose to find and update the document by its ID.
+- Ensure validation and error handling for a smooth update process.
+
+# Milestone 14
+Deleting Data from MongoDB
+- Create a DELETE API endpoint using Express.js.
+- Use Mongoose to find and delete the document by its ID.
+- Ensure validation and error handling for a smooth deletion process.
