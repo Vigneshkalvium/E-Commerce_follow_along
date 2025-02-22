@@ -113,3 +113,11 @@ Deleting Data from MongoDB
 - Create a DELETE API endpoint using Express.js.
 - Use Mongoose to find and delete the document by its ID.
 - Ensure validation and error handling for a smooth deletion process.
+
+# Milestone 15
+
+In Milestone 15, you will learn how to create a reusable Nav component and integrate it across multiple pages, including Home, My Products, Add Product, and Cart. The focus will be on ensuring smooth navigation and making the navbar fully responsive for all screen sizes. By completing this milestone, you will gain a deeper understanding of component reusability and navigation in web applications, improving both user experience and maintainability. 🚀
+
+# Milestone 16
+
+In this milestone, you will create a new page to display detailed information for each product, including an option to adjust quantity and an "Add to Cart" button. This will enhance the user experience by allowing better product interaction. Once completed, push your code to a public GitHub repository, update the README with your progress, and submit the repository link as required. 🚀
