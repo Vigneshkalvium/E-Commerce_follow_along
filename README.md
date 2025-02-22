@@ -120,4 +120,4 @@ In Milestone 15, you will learn how to create a reusable Nav component and integ
 
 # Milestone 16
 
-In this milestone, you will create a new page to display detailed information for each product, including an option to adjust quantity and an "Add to Cart" button. This will enhance the user experience by allowing better product interaction. Once completed, push your code to a public GitHub repository, update the README with your progress, and submit the repository link as required. 🚀
+In this milestone, you will create a new page to display detailed information for each product, including an option to adjust quantity and an "Add to Cart" button. This will enhance the user experience by allowing better product interaction. Once completed, push your code to a public GitHub repository, update the README with your progress, and submit the repository link as required. 
