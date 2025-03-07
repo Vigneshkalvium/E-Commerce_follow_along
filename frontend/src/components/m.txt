@@ -1,0 +1,202 @@
+Frontend
+
+components
+
+navbar.jsx=>                            <li>
+                                <NavLink
+                                    to="/profile"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                            : "text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                    }
+                                >
+                                    Profile
+                                </NavLink>
+                            </li>
+
+
+
+pages=>profile.jsx=>import React, { useEffect, useState } from "react";
+import AddressCard from "../components/AddressCard";
+import NavBar from "../components/navbar";
+
+export default function Profile() {
+	const [personalDetails, setPersonalDetails] = useState({
+		name: "",
+		email: "",
+		phoneNumber: "",
+		avatarUrl: "",
+	});
+
+	const [addresses, setAddresses] = useState([]);
+
+	useEffect(() => {
+		fetch(
+			http://localhost:8000/api/v2/user/profile?email=${"sibishree.m@kalvium.community"},
+			{
+				method: "GET",
+			}
+		)
+			.then((res) => {
+				if (!res.ok) {
+					throw new Error(HTTP error! status: ${res.status});
+				}
+				return res.json();
+			})
+			.then((data) => {
+				setPersonalDetails(data.user);
+				setAddresses(data.addresses);
+				console.log("User fetched:", data.user);
+				console.log("Addresses fetched:", data.addresses);
+			});
+	}, []);
+	return (
+		<>
+			<NavBar />
+			<div className="w-full min-h-screen bg-neutral-800 p-5">
+				<div className="w-full h-full bg-neutral-700 rounded-lg">
+					<div className="w-full h-max my-2 p-5">
+						<div className="w-full h-max">
+							<h1 className="text-3xl text-neutral-100">
+								Personal Details
+							</h1>
+						</div>
+						<div className="w-full h-max flex flex-col sm:flex-row p-5 gap-10">
+							<div className="w-40 h-max flex flex-col justify-center items-center gap-y-3">
+								<div className="w-full h-max text-2xl text-neutral-100 text-left">
+									PICTURE
+								</div>
+								<img
+									src={http://localhost:8000/${personalDetails.avatarUrl}}
+									alt="profile"
+									className="w-40 h-40 rounded-full"
+									
+								/>
+							</div>
+							<div className="h-max md:flex-grow">
+								<div className="w-full h-max flex flex-col justify-center items-center gap-y-3">
+									<div className="w-full h-max">
+										<div className="text-2xl text-neutral-100 text-left">
+											NAME
+										</div>
+										<div className="text-lg font-light text-neutral-100 text-left break-all">
+											{personalDetails.name}
+										</div>
+									</div>
+									<div className="w-full h-max">
+										<div className="text-2xl text-neutral-100 text-left">
+											EMAIL
+										</div>
+										<div className="text-lg font-light text-neutral-100 text-left break-all">
+											{personalDetails.email}
+										</div>
+									</div>
+									<div className="w-full h-max">
+										<div className="text-2xl text-neutral-100 text-left">
+											MOBILE
+										</div>
+										<div className="text-lg font-light text-neutral-100 text-left break-all">
+											{personalDetails.phoneNumber}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="w-full h-max my-2 p-5">
+						<div className="w-full h-max">
+							<h1 className="text-3xl text-neutral-100">
+								Addresses
+							</h1>
+						</div>
+						<div className="w-full h-max p-5">
+							<button className="w-max px-3 py-2 bg-neutral-600 text-neutral-100 rounded-md text-center hover:bg-neutral-100 hover:text-black transition-all duration-100">
+								Add Address
+							</button>
+						</div>
+						<div className="w-full h-max flex flex-col gap-5 p-5">
+							{addresses.length === 0 ? (
+								<div className="w-full h-max text-neutral-100 font-light text-left">
+									No Addresses Found
+								</div>
+							) : null}
+							{addresses.map((address, index) => (
+								<AddressCard key={index} {...address} />
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+	);
+}
+
+componens=>AddressCard.jsx=>export default function Product({
+	_id,
+	country,
+	city,
+	address1,
+	address2,
+	zipCode,
+	addressType,
+}) {
+	return (
+		<div className="w-full h-max bg-transparent p-5 rounded-lg border border-neutral-600 grid grid-cols-12 gap-5">
+			<div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2">
+					<div className="w-full h-max break-all text-xl text-neutral-200">
+						Country
+					</div>
+					<div className="w-full h-max break-all text-lg font-light text-neutral-200">
+						{country}
+				</div>
+			</div>
+			<div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2">
+					<div className="w-full h-max break-all text-xl text-neutral-200">
+						City
+					</div>
+					<div className="w-full h-max break-all text-lg font-light text-neutral-200">
+						{city}
+				</div>
+			</div>
+			<div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2">
+				
+					<div className="w-full h-max break-all text-xl text-neutral-200">
+						Address 1
+					</div>
+					<div className="w-full h-max break-all text-lg font-light text-neutral-200">
+						{address1}	
+				   </div>
+			</div>
+			<div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2">
+				
+					<div className="w-full h-max break-all text-xl text-neutral-200">
+						Address 2
+					</div>
+					<div className="w-full h-max break-all text-lg font-light text-neutral-200">
+						{address2}
+					</div>
+				
+			</div>
+			<div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2">
+					<div className="w-full h-max break-all text-xl text-neutral-200">
+						Zip Code
+					</div>
+					<div className="w-full h-max break-all text-lg font-light text-neutral-200">
+						{zipCode}
+					
+				</div>
+			</div>
+			<div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2">
+				<div className="w-full h-max bg-neutral-700 rounded-lg flex flex-col gap-y-2">
+					<div className="w-full h-max break-all text-xl text-neutral-200">
+						Address Type
+					</div>
+					<div className="w-full h-max break-all text-lg font-light text-neutral-200">
+						{addressType}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
