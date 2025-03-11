@@ -141,3 +141,5 @@ In Milestone 20, you will focus on building a user profile page that displays es
 # Milestone 21:
 In this milestone, you will develop a frontend form to capture user addresses, including country, city, address lines, zip code, and address type. You will implement state management to store the entered address details and ensure smooth navigation from the user profile page to the address form when the "Add Address" button is clicked. This milestone focuses on enhancing user experience by providing a structured and interactive way to input and manage address information. 🚀
 
+# Milestone 22:
+In Milestone 22, you will develop an API endpoint to receive address data submitted from the frontend address form. This endpoint will process the received address details and add them to the addresses array inside the user's collection in the database. By implementing this, you will gain a deeper understanding of how to handle data submission, update user records, and manage arrays within a database. This milestone is essential for enhancing backend development skills, particularly in handling API requests and modifying stored user data efficiently. 🚀
