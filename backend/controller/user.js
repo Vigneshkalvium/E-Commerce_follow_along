@@ -103,5 +103,4 @@ router.get("/profile", catchAsyncErrors(async (req, res, next) => {
     });
     console.log(user.avatarUrl)
 }));
-
 module.exports = router;

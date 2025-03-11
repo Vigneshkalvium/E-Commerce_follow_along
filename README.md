@@ -137,3 +137,7 @@ Develop backend endpoints to handle quantity updates.
 
 # Milestone 20:
 In Milestone 20, you will focus on building a user profile page that displays essential user information. This involves creating a backend endpoint to send all user data via email and a frontend profile page to display the retrieved data. The profile page will include sections for the user's photo, name, and email, along with a dedicated section for addresses. If addresses exist, they will be displayed with an "Add Address" button for adding new ones. If no addresses are found, a message stating "No address found" will be shown. This milestone will enhance your understanding of user data management and frontend-backend integration. 🚀
+
+# Milestone 21:
+In this milestone, you will develop a frontend form to capture user addresses, including country, city, address lines, zip code, and address type. You will implement state management to store the entered address details and ensure smooth navigation from the user profile page to the address form when the "Add Address" button is clicked. This milestone focuses on enhancing user experience by providing a structured and interactive way to input and manage address information. 🚀
+
