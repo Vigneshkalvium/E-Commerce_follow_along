@@ -143,3 +143,8 @@ In this milestone, you will develop a frontend form to capture user addresses, i
 
 # Milestone 22:
 In Milestone 22, you will develop an API endpoint to receive address data submitted from the frontend address form. This endpoint will process the received address details and add them to the addresses array inside the user's collection in the database. By implementing this, you will gain a deeper understanding of how to handle data submission, update user records, and manage arrays within a database. This milestone is essential for enhancing backend development skills, particularly in handling API requests and modifying stored user data efficiently. 🚀
+
+# Milestone 23:
+Milestone 23 focuses on implementing the order placement flow. A "Place Order" button will be added to the cart page, which, when clicked, navigates to the "Select Address" page. This page will display all available addresses associated with the user, allowing them to choose one. A backend endpoint will be created to retrieve and send all user addresses to the frontend, ensuring seamless address selection before order confirmation.
+
+# Milestone 24:

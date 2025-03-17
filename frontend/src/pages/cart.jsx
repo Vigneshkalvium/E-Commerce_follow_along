@@ -1,11 +1,17 @@
 import CartProduct from '../components/CartProduct';
 import NavBar from '../components/Navbar';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect,  } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
+
+    const handlePlaceOrder = () => {
+        navigate('/select-address');
+    }
 
     useEffect(() => {
         fetch(`http://localhost:8000/api/v2/product/cartproducts?email=${'vipvignesh@gmail.com'}`)
@@ -59,6 +65,13 @@ const Cart = () => {
                                 <CartProduct key={product._id} {...product} />
                             ))
                         }
+                    </div>
+                    <div className='w-full p-4 flex justify-end'>
+                          <button
+                            className='bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600'
+                            onClick={handlePlaceOrder}>
+                            Place Order
+                          </button>
                     </div>
                 </div>
             </div>
