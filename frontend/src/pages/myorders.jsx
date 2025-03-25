@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Nav from '../components/Navbar';
+import Nav from '../components/Navbar'
 
 const MyOrdersPage = () => {
     const [orders, setOrders] = useState([]);
@@ -23,6 +23,20 @@ const MyOrdersPage = () => {
         }
     };
 
+    const cancelOrder = async (orderId) => {
+        try {
+            const response = await axios.patch(`http://localhost:8000/api/v2/orders/cancel-order/${orderId}`);
+            setOrders((prevOrders) =>
+                prevOrders.map((order) =>
+                    order._id === orderId ? { ...order, status: response.data.order.status } : order
+                )
+            );
+            fetchOrders();
+        } catch (err) {
+            console.error(err);
+            alert(err.message || 'Error cancelling order');
+        }
+    };
 
     useEffect(() => {
         fetchOrders();
@@ -82,7 +96,7 @@ const MyOrdersPage = () => {
                                             <p>
                                                 {order.shippingAddress.address1}
                                                 {order.shippingAddress.address2 &&
-                                                     `,${order.shippingAddress.address2}`}
+                                                    `, ${order.shippingAddress.address2}`}
                                             </p>
                                             <p>
                                                 {order.shippingAddress.city}, {order.shippingAddress.zipCode}
@@ -105,7 +119,17 @@ const MyOrdersPage = () => {
                                         </ul>
                                     </div>
 
-                                   
+                                    {order.orderStatus !== 'Cancelled' && (
+                                        <button
+                                            onClick={() => cancelOrder(order._id)}
+                                            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
+                                        >
+                                            Cancel Order
+                                        </button>
+                                    )}
+                                    {order.orderStatus === 'Cancelled' && (
+                                        <p className="text-red-600 font-semibold">Order Cancelled</p>
+                                    )}
                                 </div>
                             ))}
                         </div>
