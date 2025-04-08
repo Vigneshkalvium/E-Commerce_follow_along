@@ -3,6 +3,7 @@ import NavBar from '../components/Navbar';
 
 import { useState, useEffect,  } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
 
@@ -12,9 +13,10 @@ const Cart = () => {
     const handlePlaceOrder = () => {
         navigate('/select-address');
     }
-
+    const email = useSelector((state) => state.user.email);
     useEffect(() => {
-        fetch(`http://localhost:8000/api/v2/product/cartproducts?email=${'vipvignesh@gmail.com'}`)
+        if (!email) return;
+        fetch(`http://localhost:8000/api/v2/product/cartproducts?email=${'email.com'}`)
           .then((res) => {
             if (!res.ok) {
               throw new Error(`HTTP error! status: ${res.status}`);
@@ -25,29 +27,11 @@ const Cart = () => {
             setProducts(data.cart.map(product => ({quantity: product['quantity'], ...product['productId']})));
             console.log("Products fetched:", data.cart);
           })
-
-          // {
-          //   "quantity": 2,
-          //   "productId": {
-          //     "_id": "123",
-          //     "name": "Laptop",   //product.productId.name
-          //     "price": 50000
-          //   }
-          // }
-
-          // into:
-
-          // {
-          //   "quantity": 2,
-          //   "_id": "123",
-          //   "name": "Laptop",   //product.name
-          //   "price": 50000
-          // }
           
           .catch((err) => {
             console.error(" Error fetching products:", err);
           });
-      }, []);
+      }, [email]);
     
       console.log("Products:", products);
 

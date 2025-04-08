@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import MyProduct from "../components/MyProducts/myproduct";
 import Navbar from "../components/Navbar";
-
+import { useSelector } from "react-redux";
 export default function MyProducts() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const email = "vipvignesh@gmail.com";
-   
-    console.log(email); 
+    const email = useSelector((state) => state.user.email); // Get the email from Redux store
+    
            
 
 
     useEffect(() => {
+        if (!email) return; 
         fetch(`http://localhost:8000/api/v2/product/my-products?email=${email}`)
             .then((res) => {
                 if (!res.ok) {
