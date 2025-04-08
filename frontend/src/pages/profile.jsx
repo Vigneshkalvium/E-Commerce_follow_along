@@ -19,7 +19,7 @@ export default function Profile() {
 	useEffect(() => {
 		if (!email) return;
 		fetch(
-			`http://localhost:8000/api/v2/user/profile?email=${"email"}`,
+			`http://localhost:8000/api/v2/user/profile?email=${email}`,
 			{
 				method: "GET",
 			}
