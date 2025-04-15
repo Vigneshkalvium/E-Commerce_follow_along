@@ -42,7 +42,7 @@ const MyOrdersPage = () => {
 
     useEffect(() => {
         fetchOrders();
-    }, []);
+    }, [email]);
 
     return (
         <>

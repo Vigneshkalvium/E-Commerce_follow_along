@@ -36,7 +36,7 @@ export default function Profile() {
 				console.log("User fetched:", data.user);
 				console.log("Addresses fetched:", data.addresses);
 			});
-	}, []);
+	}, [email]);
 
 	const handleAddAddress = () => {
 		navigate("/create-address");
