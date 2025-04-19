@@ -1,66 +1,65 @@
-import React, { useState, useEffect } from "react";
-import { AiOutlinePlusCircle } from "react-icons/ai";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import axios from '../axiosConfig';
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import NavBar from "../components/auth/nav";
 
 const CreateProduct = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const isEdit = Boolean(id);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const isEdit = Boolean(id);
+  const [images, setImages] = useState([]);
+  const [previewImages, setPreviewImages] = useState([]);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [tags, setTags] = useState("");
+  const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
+  const [email, setEmail] = useState("");
 
-    const [images, setImages] = useState([]);
-    const [previewImages, setPreviewImages] = useState([]);
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
-    const [tags, setTags] = useState("");
-    const [price, setPrice] = useState("");
-    const [stock, setStock] = useState("");
-    const [email, setEmail] = useState("");
+  const categoriesData = [
+      { title: "Electronics" },
+      { title: "Fashion" },
+      { title: "Books" },
+      { title: "Home Appliances" },
+  ];
 
-    const categoriesData = [
-        { title: "Electronics" },
-        { title: "Fashion" },
-        { title: "Books" },
-        { title: "Home Appliances" },
-    ];
+  useEffect(() => {
+      if (isEdit) {
+          axios
+              .get(`/api/v2/product/product/${id}`)
+              .then((response) => {
+                  const p = response.data.product;
+                  setName(p.name);
+                  setDescription(p.description);
+                  setCategory(p.category);
+                  setTags(p.tags || "");
+                  setPrice(p.price);
+                  setStock(p.stock);
+                  setEmail(p.email);
+                  if (p.images && p.images.length > 0) {
+                      setPreviewImages(
+                          p.images.map((imgPath) => `https://ecommerce-online-store-backend.onrender.com${imgPath}`)
+                      );
+                  }
+              })
+              .catch((err) => {
+                  console.error("Error fetching product:", err);
+              });
+      }
+  }, [id, isEdit]);
 
-    useEffect(() => {
-        if (isEdit) {
-            axios
-                .get(`http://localhost:8000/api/v2/product/product/${id}`)
-                .then((response) => {
-                    const p = response.data.product;
-                    setName(p.name);
-                    setDescription(p.description);
-                    setCategory(p.category);
-                    setTags(p.tags || "");
-                    setPrice(p.price);
-                    setStock(p.stock);
-                    setEmail(p.email);
-                    if (p.images && p.images.length > 0) {
-                        setPreviewImages(
-                            p.images.map((imgPath) => `http://localhost:8000${imgPath}`)
-                        );
-                    }
-                })
-                .catch((err) => {
-                    console.error("Error fetching product:", err);
-                });
-        }
-    }, [id, isEdit]);
+  const handleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    setImages((prevImages) => prevImages.concat(files));
+    const imagePreviews = files.map((file) => URL.createObjectURL(file));
+    setPreviewImages((prevPreviews) => prevPreviews.concat(imagePreviews));
+  };
 
-    const handleImagesChange = (e) => {
-        const files = Array.from(e.target.files);
-        setImages((prevImages) => prevImages.concat(files));
-        const imagePreviews = files.map((file) => URL.createObjectURL(file));
-        setPreviewImages((prevPreviews) => prevPreviews.concat(imagePreviews));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData();
         formData.append("name", name);
         formData.append("description", description);
         formData.append("category", category);
@@ -74,40 +73,36 @@ const CreateProduct = () => {
         });
 
         try {
-            if (isEdit) {
-                const response = await axios.put(
-                    `http://localhost:8000/api/v2/product/update-product/${id}`,
-                    formData,
-                    {
-                        headers: { "Content-Type": "multipart/form-data" },
-                    }
-                );
-                if (response.status === 200) {
-                    alert("Product updated successfully!");
-                    navigate("/my-products");
+          if (isEdit) {
+            const response = await axios.put(`/api/v2/product/update-product/${id}`,formData,
+                {
+                    headers: { "Content-Type": "multipart/form-data" },
                 }
-            } else {
-                const response = await axios.post(
-                    "http://localhost:8000/api/v2/product/create-product",
-                    formData,
-                    {
-                        headers: { "Content-Type": "multipart/form-data" },
-                    }
-                );
-                if (response.status === 201) {
-                    alert("Product created successfully!");
-                    setImages([]);
-                    setPreviewImages([]);
-                    setName("");
-                    setDescription("");
-                    setCategory("");
-                    setTags("");
-                    setPrice("");
-                    setStock("");
-                    setEmail("");
-                }
+            );
+            if (response.status === 200) {
+                alert("Product updated successfully!");
+                navigate("/my-products");
             }
-        } catch (err) {
+        } else {
+            const response = await axios.post("/api/v2/product/create-product", formData,
+                {
+                    headers: { "Content-Type": "multipart/form-data" },
+                }
+            );
+            if (response.status === 201) {
+                alert("Product created successfully!");
+                setImages([]);
+                setPreviewImages([]);
+                setName("");
+                setDescription("");
+                setCategory("");
+                setTags("");
+                setPrice("");
+                setStock("");
+                setEmail("");
+            }
+        }
+    } catch (err) {
             console.error("Error creating/updating product:", err);
             alert("Failed to save product. Please check the data and try again.");
         }
@@ -115,7 +110,7 @@ const CreateProduct = () => {
 
     return (
         <>
-            <Navbar/>
+            <NavBar />
             <div className="w-[90%] max-w-[500px] bg-white shadow h-auto rounded-[4px] p-4 mx-auto">
                 <h5 className="text-[24px] font-semibold text-center">
                     {isEdit ? "Edit Product" : "Create Product"}
@@ -226,10 +221,24 @@ const CreateProduct = () => {
                             className="hidden"
                             multiple
                             onChange={handleImagesChange}
-                            required={!isEdit} //when creating a product this field is required
+                            required={!isEdit}
                         />
                         <label htmlFor="upload" className="cursor-pointer">
-                            <AiOutlinePlusCircle size={30} color="#555" />
+                        <svg
+                                 width="30"
+                                 height="30"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 className="text-gray-600"
+                                 viewBox="0 0 24 24"
+                             >
+                                 <path
+                                     d="M12 4v16m8-8H4"
+                                     strokeWidth="2"
+                                     strokeLinecap="round"
+                                     strokeLinejoin="round"
+                                 />
+                             </svg>
                         </label>
                         <div className="flex flex-wrap mt-2">
                             {previewImages.map((img, index) => (

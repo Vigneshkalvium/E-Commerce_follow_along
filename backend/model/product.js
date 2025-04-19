@@ -1,64 +1,46 @@
-const mongoose = require('mongoose');
-
-const productSchema = new mongoose.Schema({
+const mongoose = require("mongoose");
+const productSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: [true, 'please provide the product name'],
-    },
-    price: {
-        type: Number,
-        required: [true, 'please provide the product price'],
+      type: String,
+      required: [true, "Please provide the product name"],
     },
     description: {
-        type: String,
-        required: [true, 'please provide the product description'],
+      type: String,
+      required: [true, "Please provide the product description"],
     },
     category: {
-        type: String,
-        required: [true, 'Product category is required'],
+      type: String,
+      required: [true, "Please provide the product category"],
     },
     tags: {
-        type: String,
-        default: [],
+      type: [String], // Array of tags
+      default: [],
+    },
+    price: {
+      type: Number,
+      required: [true, "Please provide the product price"],
     },
     stock: {
-        type: Number,
-        required: [true, 'Product stock is required'],
+      type: Number,
+      required: [true, "Please provide the product stock"],
     },
     email: {
-        type: String,
-        required: [true, 'Product email is required'],
-        match : [/.+@.+\..+/,"please enter a valid email address"]
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
+      type: String,
+      required: [true, "Please provide an email"],
+      match: [/.+@.+\..+/, "Please provide a valid email address"],
     },
     images: {
-        type: [String],
-        default: [],
-        required: [true, 'Product images are required'],
+      type: [String], // Array of image URLs (base64 or hosted links)
+      required: [true, "Please upload product images"],
     },
-    cart: [
-        {
-         productId: {
-           type: String,
-           required: [true, "Please provide the product ID"],
-           unique: true,
-         },
-         quantity: {
-           type: Number,
-           required: [true, "Please provide the quantity"],
-           min: [0, "Quantity cannot be negative"],
-         },
-       },
-     ],
- 
- 
-},
-{
+    createdAt: {
+      type: Date,
+      default: Date.now, // Automatically set the creation date
+    },
+  },
+  {
     timestamps: true,
-}
+  }
 );
-
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model("Product", productSchema);

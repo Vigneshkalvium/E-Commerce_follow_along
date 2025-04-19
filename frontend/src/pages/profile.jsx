@@ -1,46 +1,59 @@
 import React, { useEffect, useState } from "react";
-import AddressCard from "../components/AddressCard";
-import NavBar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import AddressCard from "../components/auth/AddressCard";
+import NavBar from "../components/auth/nav";
+import { useSelector } from "react-redux"; 
+import axios from "../axiosConfig";
+// import axios from 'axios';
+// axios.defaults.withCredentials = true;
 
 export default function Profile() {
-	const navigate = useNavigate();
-	const email = useSelector((state) => state.user.email); // Get the email from Redux store
+	const email = useSelector((state) => state.user.email);
+	console.log(email);
 	const [personalDetails, setPersonalDetails] = useState({
 		name: "",
 		email: "",
 		phoneNumber: "",
 		avatarUrl: "",
 	});
-
 	const [addresses, setAddresses] = useState([]);
-
+	const navigate = useNavigate();
 	useEffect(() => {
+		// Only fetch profile if email exists
 		if (!email) return;
-		fetch(
-			`http://localhost:8000/api/v2/user/profile?email=${email}`,
-			{
-				method: "GET",
-			}
-		)
+		// fetch(
+		// 	`http://localhost:8000/api/v2/user/profile?email=${email}`,
+		// 	{
+		// 		method: "GET",
+		// 		credentials: "include",
+		// 	},
+            
+		// )
+		// 	.then((res) => {
+		// 		if (!res.ok) {
+		// 			throw new Error(`HTTP error! status: ${res.status}`);
+		// 		}
+		// 		return res.json();
+		// 	})
+		// axios.get(`http://localhost:8000/api/v2/user/profile?email=${email}`, { withCredentials: true })
+		// axios.get("/api/v2/user/profile", { params: { email } })
+		axios.get("/api/v2/user/profile", {
+			params: { email },
+			withCredentials: true, 
+		  })
 			.then((res) => {
-				if (!res.ok) {
-					throw new Error(`HTTP error! status: ${res.status}`);
-				}
-				return res.json();
+				setPersonalDetails(res.data.user);
+				setAddresses(res.data.addresses);
+				console.log("User fetched:", res.data.user);
+				console.log("Addresses fetched:", res.data.addresses);
 			})
-			.then((data) => {
-				setPersonalDetails(data.user);
-				setAddresses(data.addresses);
-				console.log("User fetched:", data.user);
-				console.log("Addresses fetched:", data.addresses);
-			});
+			.catch((err) => console.error(err));
 	}, [email]);
 
 	const handleAddAddress = () => {
 		navigate("/create-address");
-	}
+	};
+
 	return (
 		<>
 			<NavBar />
@@ -58,10 +71,13 @@ export default function Profile() {
 									PICTURE
 								</div>
 								<img
-									src={`http://localhost:8000/${personalDetails.avatarUrl}`}
+									src={personalDetails.avatarUrl ? `https://ecommerce-online-store-backend.onrender.com/${personalDetails.avatarUrl}` : `https://cdn.vectorstock.com/i/500p/17/61/male-avatar-profile-picture-vector-10211761.jpg`}
 									alt="profile"
 									className="w-40 h-40 rounded-full"
-									
+									onError={(e) => {
+										e.target.onerror = null; // Prevents infinite loop if the default image also fails
+										e.target.src = "https://cdn.vectorstock.com/i/500x500/17/61/male-avatar-profile-picture-vector-10211761.jpg";
+									}}
 								/>
 							</div>
 							<div className="h-max md:flex-grow">
@@ -101,9 +117,10 @@ export default function Profile() {
 							</h1>
 						</div>
 						<div className="w-full h-max p-5">
-							<button className="w-max px-3 py-2 bg-neutral-600 text-neutral-100 rounded-md text-center hover:bg-neutral-100 hover:text-black transition-all duration-100"
+							<button
+								className="w-max px-3 py-2 bg-neutral-600 text-neutral-100 rounded-md text-center hover:bg-neutral-100 hover:text-black transition-all duration-100"
 								onClick={handleAddAddress}
-							>	
+							>
 								Add Address
 							</button>
 						</div>
