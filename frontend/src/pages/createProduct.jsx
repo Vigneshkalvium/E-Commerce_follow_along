@@ -87,6 +87,7 @@ const CreateProduct = () => {
             const response = await axios.post("/api/v2/product/create-product", formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
+                    withCredentials: true,
                 }
             );
             if (response.status === 201) {
