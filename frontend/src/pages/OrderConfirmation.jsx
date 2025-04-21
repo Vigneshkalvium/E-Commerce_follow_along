@@ -36,12 +36,15 @@ const OrderConfirmation = () => {
                 });
                 const cartData = cartResponse.data;
                 // Map cart items to include full image URLs
-                const processedCartItems = cartData.cart.map(item => ({
-                    product: item.productId._id,
-                    name: item.productId.name,
-                    price: item.productId.price,
-                    image: item.productId.images.map(imagePath => `https://ecommerce-online-store-backend.onrender.com${imagePath}`),
-                    quantity: item.quantity,
+                const processedCartItems = cartData.cart.map((item) => ({
+                  product: item.productId._id,
+                  name: item.productId.name,
+                  price: item.productId.price,
+                  image: item.productId.images.map(
+                    (imagePath) =>
+                      `https://ecommerce-online-store-back.onrender.com/${imagePath}`
+                  ),
+                  quantity: item.quantity,
                 }));
                 setCartItems(processedCartItems);
                 // Calculate total price

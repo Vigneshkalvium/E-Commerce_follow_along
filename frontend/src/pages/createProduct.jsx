@@ -40,7 +40,10 @@ const CreateProduct = () => {
                   setEmail(p.email);
                   if (p.images && p.images.length > 0) {
                       setPreviewImages(
-                          p.images.map((imgPath) => `https://ecommerce-online-store-backend.onrender.com${imgPath}`)
+                        p.images.map(
+                          (imgPath) =>
+                            `https://ecommerce-online-store-back.onrender.com/${imgPath}`
+                        )
                       );
                   }
               })
@@ -87,7 +90,6 @@ const CreateProduct = () => {
             const response = await axios.post("/api/v2/product/create-product", formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
-                    withCredentials: true,
                 }
             );
             if (response.status === 201) {

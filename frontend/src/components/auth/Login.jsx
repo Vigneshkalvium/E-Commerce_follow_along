@@ -8,7 +8,7 @@ import { setemail } from "../../store/userActions";
 import { useNavigate } from "react-router-dom"; 
 
 // Ensure axios sends cookies with requests
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/v2/user/login", { email, password }, {withCredentials: true,});
+      const response = await axios.post(
+        "/api/v2/user/login",
+        { email, password },
+        { withCredentials: true }
+      );
       console.log(response.data);
       alert("Logged in successfully!");
       // Dispatch email to Redux state (token is now handled via cookies)
