@@ -42,7 +42,7 @@ const CreateProduct = () => {
                       setPreviewImages(
                         p.images.map(
                           (imgPath) =>
-                            `https://ecommerce-online-store-back.onrender.com/${imgPath}`
+                            `https://ecommerce-online-store-backend-b1hl.onrender.com/${imgPath}`
                         )
                       );
                   }

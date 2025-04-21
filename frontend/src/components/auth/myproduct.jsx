@@ -42,7 +42,7 @@ function Myproduct({ _id, name, images, description, price }) {
           <div className="w-full">
             {currentImage && (
               <img
-                src={`https://ecommerce-online-store-back.onrender.com${currentImage}`}
+                src={`https://ecommerce-online-store-backend-b1hl.onrender.com${currentImage}`}
                 alt={name}
                 className="w-full h-56 object-cover rounded-lg mb-2"
               />

@@ -18,7 +18,7 @@ function Product({ _id, name, images, description, price }) {
       <div className="bg-neutral-200 p-4 rounded-lg shadow-md flex flex-col justify-between">
         <div className="w-full ">
           <img
-            src={`https://ecommerce-online-store-back.onrender.com/${currentImage}`}
+            src={`https://ecommerce-online-store-backend-b1hl.onrender.com/${currentImage}`}
             alt={name}
             className="w-full h-56 object-cover rounded-lg mb-2"
           />

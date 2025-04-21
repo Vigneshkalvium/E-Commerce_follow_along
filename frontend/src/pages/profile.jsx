@@ -71,7 +71,7 @@ export default function Profile() {
                 <img
                   src={
                     personalDetails.avatarUrl
-                      ? `https://ecommerce-online-store-back.onrender.com/${personalDetails.avatarUrl}`
+                      ? `https://ecommerce-online-store-backend-b1hl.onrender.com/${personalDetails.avatarUrl}`
                       : `https://cdn.vectorstock.com/i/500p/17/61/male-avatar-profile-picture-vector-10211761.jpg`
                   }
                   alt="profile"
