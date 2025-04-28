@@ -1,20 +1,20 @@
 # Ecommerce Follow Along Project
-Welcome to the *Ecommerce Follow Along Project*, this is a hands-on project where we will build a complete e-commerce application using the MERN stack(MongoDB, Express.js, and Node.js). The goal is to learn how to develop a full-stack web application step by step.
+Welcome to the **Ecommerce Follow Along Project**, this is a hands-on project where we will build a complete e-commerce application using the MERN stack(MongoDB, Express.js, and Node.js). The goal is to learn how to develop a full-stack web application step by step.
 
 ## Milestone 1: Project Overview
 
 #### 1. Understanding the MERN Stack:
-*MongoDB :* A database for storing application data in a flexible, document based format.
-*Express.js :* A backend web application framework for building APIs and handling server logics.
-*React.js :* A framework library for building User Interfaces.
-*Node.js :* A runtime environment that allows javascript to run on the server.
+**MongoDB :** A database for storing application data in a flexible, document based format.
+**Express.js :** A backend web application framework for building APIs and handling server logics.
+**React.js :** A framework library for building User Interfaces.
+**Node.js :** A runtime environment that allows javascript to run on the server.
 
 #### 2. REST API Structure
 REST APIs are used to allow communication between the frontend and backend.
 We'll create APIs for:
-- *User Authentication*: Allowing users to register and log in.
-- *Product Management*: Adding, Updating, and Retrieving products data.
-- *Order Handling*: Managing customer orders.
+- **User Authentication**: Allowing users to register and log in.
+- **Product Management**: Adding, Updating, and Retrieving products data.
+- **Order Handling**: Managing customer orders.
 
 #### 3. Database Schema Design
 We'll learn how to design and organize data using MongoDB. A schema helps us define how the data is stored and related.
@@ -50,8 +50,8 @@ In this milestone, we implemented user login authentication by validating creden
 
 ## Milestone 8:
 ### Learning Goals 🎯  
-- Build a *frontend card component* for products.  
-- Display these *product cards* on the homepage.  
+- Build a **frontend card component** for products.  
+- Display these **product cards** on the homepage.  
 
 This milestone focuses on designing a reusable product card and integrating it into the homepage to showcase multiple products effectively. 🚀
 
@@ -61,27 +61,27 @@ This milestone focuses on designing a reusable product card and integrating it i
 The Product Form is essential for adding new products to the database. It allows users to input product details, which will be stored in MongoDB Atlas and displayed on the Products Home Page.
 
 ## Key Features of the Product Form:
-- *Product Details Input:* The form collects essential details like:
+- **Product Details Input:** The form collects essential details like:
   - Product Name  
   - Price  
   - Category  
   - Description  
   - Stock Availability  
-- *Data Storage:* The entered data will be saved in MongoDB Atlas.  
-- *Future Enhancements (for experimentation):*  
-  - *Admin Access:* Only admins can upload products.  
-  - *Shop Profiles:* A user with a "Shop Profile" can add and manage products.  
+- **Data Storage:** The entered data will be saved in MongoDB Atlas.  
+- **Future Enhancements (for experimentation):**  
+  - **Admin Access:** Only admins can upload products.  
+  - **Shop Profiles:** A user with a "Shop Profile" can add and manage products.  
 
 ## Steps to Implement:
-1. *Create a Product Form* in *React/HTML* to collect product details.  
-2. *Handle Form Submission* to store the product data in MongoDB.  
-3. *Restrict Access* (Optional Enhancements) based on user roles (Admin/Shop).  
+1. **Create a Product Form** in **React/HTML** to collect product details.  
+2. **Handle Form Submission** to store the product data in MongoDB.  
+3. **Restrict Access** (Optional Enhancements) based on user roles (Admin/Shop).  
 
 This milestone helps in understanding how to structure and manage product data efficiently.
 
 # Milestone 10 Summary
 
-In this milestone, you'll learn how to create a *mongoose schema* for products and build an *endpoint* to store product details in MongoDB. The main steps include:
+In this milestone, you'll learn how to create a **mongoose schema** for products and build an **endpoint** to store product details in MongoDB. The main steps include:
 
 ## 1. Product Schema
 - Define the structure for product data (e.g., name, description, price) with validation for required fields and correct data types.
@@ -126,7 +126,7 @@ In this milestone, you will create a new page to display detailed information fo
 In this milestone, we designed the cart schema to store product details in a user's cart, including product ID, name, quantity, price, and total. The schema also tracks the total amount for the cart and associates the cart with a specific user.
 
 # Milestone 18: 
-In this milestone, we created a **GET /cart** endpoint to fetch the user's cart details, including product information and total amount. The endpoint ensures that only authenticated users can access their cart and retrieves the cart data from the database.
+In this milestone, we created a **GET `/cart`** endpoint to fetch the user's cart details, including product information and total amount. The endpoint ensures that only authenticated users can access their cart and retrieves the cart data from the database.
 
 # Milestone 19: Cart Functionality 🛒
 Learning Goals 🎯
@@ -160,19 +160,34 @@ This endpoint allows retrieval of a user's order history using their email addre
 Milestone 27 focuses on implementing the My Orders page in the e-commerce project. This involves sending a GET request to the /my-orders endpoint, where the user's email is passed to retrieve all their orders from the database. The fetched orders will then be displayed dynamically on the My Orders page, ensuring users can easily view their purchase history. Additionally, a navigation link to this page will be added to the navbar for better accessibility. This update enhances the user experience by providing a dedicated section for order tracking and management.
 
 # Milestone 28:
-Milestone 28 enhances the *My Orders* page by adding a *Cancel Order* button for each active order. This button will allow users to cancel an order if it has not already been canceled. If an order is already marked as canceled, the button will not be displayed. To achieve this, a new *API endpoint* will be created to handle order cancellations. When a user clicks the cancel button, the order *ID* will be sent to this endpoint, which will retrieve the order, update its status to *canceled*, and save the changes. This feature improves order management and gives users more control over their purchases.
+Milestone 28 enhances the **My Orders** page by adding a **Cancel Order** button for each active order. This button will allow users to cancel an order if it has not already been canceled. If an order is already marked as canceled, the button will not be displayed. To achieve this, a new **API endpoint** will be created to handle order cancellations. When a user clicks the cancel button, the order **ID** will be sent to this endpoint, which will retrieve the order, update its status to **canceled**, and save the changes. This feature improves order management and gives users more control over their purchases.# Ecommerce-Follow-Along
 
-# Milestone 29 - PayPal Integration Setup:
+## Milestone 29 - PayPal Integration Setup:
 In this milestone, we set up the PayPal sandbox environment for online payments. First, create a PayPal account and access the PayPal Developer Dashboard. From there, locate the sandbox accounts section, copy the UserID, and save it. Additionally, retrieve and save the client ID from the sandbox account. On the order confirmation page, implement two payment options: Cash on Delivery (COD) and online payment. Use radio buttons to toggle between these options, ensuring that the PayPal payment buttons appear when online payment is selected. In the next milestone, we will implement the functionality to display and process PayPal online payments.
 
-# Milestone 30 - Implementing PayPal Online Payments
+## Milestone 30 - Implementing PayPal Online Payments
 In this milestone, we integrate PayPal online payments into our project. Using the previously created PayPal sandbox account and client ID, implement the PayPal API to enable online transactions. Install the react-paypal-js NPM package, which provides the PayPalScriptProvider component to display various payment methods, including credit and debit cards. This step will enhance your understanding of integrating online payments seamlessly into your application.
 
-# Milestone 31
-In this milestone, we set up global state management in our React application using the react-redux package. First, we installed react-redux via npm. Then, we created a new folder named store containing two files: store.js and userActions.js. Inside store.js, we defined a userReducer function responsible for managing the user's email in the global state and configured the Redux store using this reducer. In userActions.js, we created an action creator function named setEmail to dispatch actions that update the email value in the store. Finally, in index.js, we wrapped the root <App /> component with Redux’s <Provider> component and passed the store as a prop to ensure the global state is accessible throughout the application. This setup allows us to manage and access the user's email globally using Redux.
+## Milestone 31
+In this milestone, we set up global state management in our React application using the react-redux package. First, we installed react-redux via npm. Then, we created a new folder named store containing two files: store.js and userActions.js. Inside store.js, we defined a userReducer function responsible for managing the user's email in the global state and configured the Redux store using this reducer. In userActions.js, we created an action creator function named setEmail to dispatch actions that update the email value in the store. Finally, in index.js, we wrapped the root component with Redux’s component and passed the store as a prop to ensure the global state is accessible throughout the application. This setup allows us to manage and access the user's email globally using Redux.
 
-# Milestone 32
+## Milestone 32
 In Milestone 32, we implemented global state management to handle user authentication by storing the user's email after login. When the user logs in successfully, we use the dispatch method from Redux to store their email in a global state using a slice (userSlice). This allows us to access the email across different components using the useSelector hook. By doing this, we avoid passing props manually and ensure a consistent user context throughout the application. This email is then used to filter and fetch data specific to the logged-in user in other pages, enhancing both security and user experience.
 
-# Milestone 33
+## Milestone 33
 To begin using JWT authentication in your Node.js application, first install the jsonwebtoken package by running npm install jsonwebtoken in your project directory. Once installed, you can use the sign method from this package to create a JWT token by passing a payload that includes the user's email and ID. To control how long the token remains valid, you can set the expiresIn property using the maxAge option, such as '1d' for one day or '3h' for three hours. After generating the token, use the res.cookie() method provided by Express to store the token in a cookie on the user's browser. For security purposes, ensure the cookie is set with httpOnly: true to prevent access from client-side scripts. Here’s an example of setting the cookie: res.cookie('token', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });, where maxAge is in milliseconds. This setup helps manage user sessions securely using JWTs stored in browser cookies.
+
+## Milestone 34  
+In Milestone 34, we implemented route protection using JWT authentication by validating the token stored in browser cookies. On each request to a protected route, the backend extracts the token from the cookies and verifies it using a middleware function. If the token is valid, the user is allowed to access the route; otherwise, an error response is returned. This middleware is applied to all sensitive routes to ensure only authenticated users can access them. On the frontend, cookies are sent automatically with each request using `credentials: 'include'`, and users are redirected to the login page if authentication fails. This ensures that no page requiring authentication can be accessed without a valid login session.
+
+
+
+## Milestone 35  
+In Milestone 35, we deployed both the backend and frontend of the application. The backend was deployed using a hosting service and is accessible at:  
+**Frontend URL:** https://ecommerce-online-store-frontend-8oea.onrender.com
+
+This link replaced all instances of `localhost` in the frontend code to enable proper API communication. After that, the frontend was deployed using a deployment platform and is available at:  
+**Backend URL:** https://ecommerce-online-store-backend-b1hl.onrender.com 
+
+Finally, we tested both deployments to ensure they are working correctly together in the production environment, confirming successful integration and functionality.
+.
